@@ -72,7 +72,7 @@ This step helped me understand how Logstash moves data through its input, filter
 
 The sanitized configuration is available here:
 
-[View authlog.conf](configs/authlog.conf)
+[View authlog.conf](Configs/authlog.conf)
 
 ## 2. Logstash Output Verification
 
@@ -123,7 +123,7 @@ The pipeline also corrected the event timestamp, removed unnecessary fields, and
 
 A sanitized portfolio version of the configuration is available here:
 
-[View firewall.conf](configs/firewall.conf)
+[View firewall.conf](Configs/firewall.conf)
 
 The public configuration uses environment-variable and hostname placeholders. No working API keys, passwords, or authentication tokens are included.
 
