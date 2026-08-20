@@ -12,7 +12,7 @@ Collect → Parse → Index → Search → Investigate → Visualize → Report
 
 > **Featured Result:** I successfully processed thousands of firewall events and created a Kibana dashboard for monitoring traffic volume, blocked source addresses, destination ports, and network activity over time.
 
-![Final Kibana firewall monitoring dashboard](Screenshots/11-firewall-monitoring-dashboard-fixed.png)
+![Final Kibana firewall monitoring dashboard](https://github.com/christopher-daniels-hub/ELK-Stack-SIEM-Firewall-Monitoring/blob/main/Screenshots/11-firewall-monitoring-dashboard-fixed.png?raw=true)
 
 ## Project Objectives 🎯
 
