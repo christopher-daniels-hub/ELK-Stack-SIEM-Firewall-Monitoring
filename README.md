@@ -11,8 +11,8 @@ Collect → Parse → Index → Search → Investigate → Visualize → Report
 ```
 
 > **Featured Result:** I successfully processed thousands of firewall events and created a Kibana dashboard for monitoring traffic volume, blocked source addresses, destination ports, and network activity over time.
+<img width="1185" height="574" alt="11-firewall-monitoring-dashboard-fixed" src="https://github.com/user-attachments/assets/0f600d59-455c-44e2-bb5c-2b9410a661cc" />
 
-![Final Kibana firewall monitoring dashboard](https://github.com/christopher-daniels-hub/ELK-Stack-SIEM-Firewall-Monitoring/blob/main/Screenshots/11-firewall-monitoring-dashboard-fixed.png?raw=true)
 
 ## Project Objectives 🎯
 
@@ -47,7 +47,8 @@ The original virtual lab environment is no longer active. This repository preser
 
 The following diagram illustrates how raw Linux logs moved through the ELK Stack and became searchable security findings, visualizations, and recommendations.
 
-![ELK Stack SIEM firewall monitoring workflow](./Screenshots/elk-siem-workflow.png)
+<img width="900" height="490" alt="elk-siem-workflow" src="https://github.com/user-attachments/assets/43427e1a-b374-49fe-8c3f-623e13f3deac" />
+
 
 ### Workflow Breakdown
 
@@ -66,7 +67,8 @@ I began by creating a basic Logstash pipeline named `authlog.conf`. The pipeline
 
 This step helped me understand how Logstash moves data through its input, filter, and output stages.
 
-![Basic Logstash authentication pipeline](./Screenshots/01-authlog-pipeline.png)
+<img width="619" height="212" alt="01-authlog-pipeline" src="https://github.com/user-attachments/assets/beba6e6b-a130-4140-9fca-8dd29cd8a219" />
+
 
 The sanitized configuration is available here:
 
@@ -78,7 +80,8 @@ After configuring the pipeline, I verified that Logstash successfully created th
 
 This confirmed that the pipeline could read the input source and produce the intended output.
 
-![Logstash authentication output](./Screenshots/02-authlog-output.png)
+<img width="1184" height="593" alt="02-authlog-output" src="https://github.com/user-attachments/assets/b9ff74fd-ae77-4462-92a2-7d2ef17b6a51" />
+
 
 ## 3. Elasticsearch Index Verification
 
@@ -86,13 +89,15 @@ I configured Logstash to forward processed events to Elasticsearch. I then verif
 
 This demonstrated that Logstash and Elasticsearch were communicating successfully.
 
-![Elasticsearch index verification](./Screenshots/03-elasticsearch-index.png)
+<img width="1185" height="576" alt="03-elasticsearch-index" src="https://github.com/user-attachments/assets/d1dd38e1-1f5d-4596-bb8c-3d2a89736299" />
+
 
 ## 4. Kibana Data View
 
 I created a corresponding Kibana data view so the indexed events could be searched, filtered, and analyzed through Kibana Discover.
 
-![Kibana data view](./Screenshots/04-kibana-data-view.png)
+<img width="1186" height="570" alt="04-kibana-data-view" src="https://github.com/user-attachments/assets/d991d710-8fd8-4c14-9043-5a61ce8c8f10" />
+
 
 ## 5. Custom Firewall Pipeline
 
@@ -113,7 +118,8 @@ The extracted fields included:
 
 The pipeline also corrected the event timestamp, removed unnecessary fields, and forwarded the structured events to an Elasticsearch index named `firewall`.
 
-![Sanitized Logstash firewall pipeline](./Screenshots/05-firewall-logstash-pipeline.png)
+<img width="1180" height="601" alt="05-firewall-logstash-pipeline" src="https://github.com/user-attachments/assets/abaec5a9-214a-4b49-bdd2-9585f92d2e81" />
+
 
 A sanitized portfolio version of the configuration is available here:
 
@@ -139,7 +145,8 @@ I created an Elasticsearch index template to assign appropriate data types to th
 
 Correct field mappings allowed Kibana to search, sort, filter, and aggregate the data accurately.
 
-![Firewall index-template mappings](./Screenshots/06-firewall-index-template.png)
+<img width="1182" height="590" alt="06-firewall-index-template" src="https://github.com/user-attachments/assets/feb5d6d5-a8ed-4cb2-9a86-6f176b1ef706" />
+
 
 ## 7. Parsed Events in Kibana Discover
 
@@ -151,7 +158,8 @@ This confirmed that the complete data pipeline was working:
 UFW Logs → Logstash → Elasticsearch → Kibana
 ```
 
-![Parsed firewall events in Kibana Discover](./Screenshots/07-parsed-firewall-event.png)
+<img width="1182" height="572" alt="07-parsed-firewall-event" src="https://github.com/user-attachments/assets/27922ee8-e28d-43bb-b6a1-ba765614b0e0" />
+
 
 ## 8. Blocked-Traffic Investigation 🛡️
 
@@ -168,7 +176,8 @@ I reviewed the resulting events to identify:
 
 This investigation demonstrated how a SOC analyst can reduce a large dataset to a smaller group of events requiring additional review.
 
-![Blocked traffic investigation](./Screenshots/08-blocked-traffic-investigation.png)
+<img width="1183" height="585" alt="08-blocked-traffic-investigation" src="https://github.com/user-attachments/assets/fac0a147-46ef-4e50-b876-dcb56a72dc8d" />
+
 
 ## 9. Top Blocked Sources
 
@@ -178,7 +187,8 @@ This visualization helped identify persistent sources that may have been conduct
 
 A high number of blocked events alone does not prove malicious intent, so these findings would require correlation with additional logs and threat intelligence.
 
-![Top blocked source addresses](./Screenshots/09-top-blocked-sources.png)
+<img width="1186" height="749" alt="09-top-blocked-sources" src="https://github.com/user-attachments/assets/2f580724-2480-4459-a23e-8c289117e834" />
+
 
 ## 10. Targeted Destination Ports
 
@@ -194,7 +204,8 @@ The observed ports included:
 
 Port 23 represented the largest portion of the reviewed blocked-port activity. Because Telnet transmits information without modern encryption protections, repeated traffic targeting this service would deserve additional investigation.
 
-![Targeted destination ports](./Screenshots/10-targeted-destination-ports.png)
+<img width="1182" height="586" alt="10-targeted-destination-ports" src="https://github.com/user-attachments/assets/9e085a51-01f2-4e7c-8d09-601e84efb29e" />
+
 
 ## 11. Final Kibana Dashboard 📊
 
@@ -209,7 +220,8 @@ The dashboard included:
 
 The dashboard provided a centralized view of firewall activity and supported faster identification of persistent sources, frequently targeted services, and traffic-volume patterns.
 
-![Final Kibana firewall monitoring dashboard](./Screenshots/11-firewall-monitoring-dashboard.png)
+<img width="1185" height="574" alt="11-firewall-monitoring-dashboard" src="https://github.com/user-attachments/assets/5b0f578e-50b0-46fd-ad3e-7d4974cfe369" />
+
 
 ## Key Findings
 
